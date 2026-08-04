@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="株式会社トム財産ネットワークスのお問い合わせページです。" />
+    <title>お問い合わせ｜株式会社トム財産ネットワークス</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="wrap">
+        <span>受付時間 平日9:00〜18:00</span>
+        <a href="contact.html">お問い合わせはこちら</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand-link" href="index.html" aria-label="株式会社トム財産ネットワークス トップへ戻る">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 44 44" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 21 22 6 37 21" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M7 21 7 36 37 36 37 21" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="15" y1="27" x2="29" y2="27" stroke="#1f9d7c" stroke-width="4.5" stroke-linecap="round" />
+              <line x1="22" y1="27" x2="22" y2="36" stroke="#1f9d7c" stroke-width="4.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <p class="brand-en">Tom Zaisan Networks</p>
+            <p class="brand-ja">株式会社トム財産ネットワークス</p>
+          </div>
+        </a>
+        <div class="header-actions">
+          <nav id="site-nav" class="site-nav">
+            <a href="index.html">トップ</a>
+            <a href="company.html">会社概要</a>
+            <a href="service.html">業務内容</a>
+            <a href="news.html">お知らせ</a>
+            <a href="contact.html" aria-current="page">お問い合わせ</a>
+          </nav>
+          <a class="header-cta" href="contact.html">相談してみる</a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+            <span></span><span></span><span></span>
+            <span class="sr-only">メニューを開く</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="breadcrumb"><a href="index.html">トップ</a> ＞ お問い合わせ</p>
+          <span class="eyebrow">Contact</span>
+          <h1>お問い合わせ</h1>
+          <p class="lead">公開情報として確認できた範囲の連絡先を掲載しています。フォームからのご相談も承っておりますが、本サイトはモックアップのため送信処理は行われません。</p>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="wrap">
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h3>会社情報</h3>
+              <dl>
+                <div class="contact-row">
+                  <dt>会社名</dt>
+                  <dd>株式会社トム財産ネットワークス</dd>
+                </div>
+                <div class="contact-row">
+                  <dt>所在地</dt>
+                  <dd>東京都調布市（郵便番号 182-0024）</dd>
+                </div>
+                <div class="contact-row">
+                  <dt>電話番号</dt>
+                  <dd>03-0000-0000</dd>
+                </div>
+                <div class="contact-row">
+                  <dt>受付時間</dt>
+                  <dd>平日 9:00〜18:00</dd>
+                </div>
+              </dl>
+            </div>
+            <div class="contact-card">
+              <h3>ご相談にあたって</h3>
+              <p style="margin:0 0 20px;color:var(--muted);font-size:0.92rem;">
+                以下のフォームより、ご相談内容を承ります。
+              </p>
+              <form id="contact-form" class="contact-form" novalidate>
+                <div class="form-field">
+                  <label for="cf-company">会社名</label>
+                  <input type="text" id="cf-company" name="company" placeholder="株式会社◯◯" autocomplete="organization" />
+                </div>
+                <div class="form-field">
+                  <label for="cf-phone">電話番号</label>
+                  <input type="tel" id="cf-phone" name="phone" placeholder="03-0000-0000" autocomplete="tel" />
+                </div>
+                <div class="form-field">
+                  <label for="cf-email">メールアドレス<span class="form-required">必須</span></label>
+                  <input type="email" id="cf-email" name="email" placeholder="example@company.co.jp" autocomplete="email" required />
+                </div>
+                <div class="form-field">
+                  <label for="cf-message">お問い合わせ内容<span class="form-required">必須</span></label>
+                  <textarea id="cf-message" name="message" rows="5" placeholder="ご相談内容をご記入ください" required></textarea>
+                </div>
+                <p class="form-error" id="contact-form-error" role="alert" hidden></p>
+                <div class="hero-actions" style="margin-top:8px;">
+                  <button type="submit" class="btn btn-primary">送信する</button>
+                </div>
+              </form>
+              <div id="contact-form-success" class="form-success" role="status" hidden>
+                <p>お問い合わせありがとうございます。内容を確認のうえ、担当者よりご連絡いたします。</p>
+                <p style="margin:8px 0 0;color:var(--muted);font-size:0.85rem;">※本サイトはモックアップのため、実際の送信・メール通知は行われません。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div class="footer-col footer-brand">
+          <a class="brand-link" href="index.html" style="color:#fff;">
+            <div class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 44 44" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 21 22 6 37 21" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M7 21 7 36 37 36 37 21" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                <line x1="15" y1="27" x2="29" y2="27" stroke="#1f9d7c" stroke-width="4.5" stroke-linecap="round" />
+                <line x1="22" y1="27" x2="22" y2="36" stroke="#1f9d7c" stroke-width="4.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="brand-text">
+              <p class="brand-en" style="color:rgba(255,255,255,0.6);">Tom Zaisan Networks</p>
+              <p class="brand-ja" style="color:#fff;">株式会社トム財産ネットワークス</p>
+            </div>
+          </a>
+          <p>資産活用・相続対策・事業承継・投資分析・リスクマネジメントに特化した不動産コンサルティング会社です。</p>
+        </div>
+        <div class="footer-col">
+          <h4>サイトメニュー</h4>
+          <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="company.html">会社概要</a></li>
+            <li><a href="service.html">業務内容</a></li>
+            <li><a href="news.html">お知らせ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>サービス</h4>
+          <ul>
+            <li><a href="service.html#asset">資産活用の設計</a></li>
+            <li><a href="service.html#inheritance">相続対策・承継支援</a></li>
+            <li><a href="service.html#investment">投資分析・意思決定支援</a></li>
+            <li><a href="service.html#risk">法人資産のリスク整理</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>会社情報</h4>
+          <ul>
+            <li>東京都調布市</li>
+            <li>設立：2024年7月31日</li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <span>&copy; 2026 Tom Zaisan Networks Co., Ltd.</span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
