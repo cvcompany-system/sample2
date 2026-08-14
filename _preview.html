@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<style>
+  body { margin: 0; background: #222; padding: 20px; font-family: sans-serif; }
+  .stage {
+    position: relative;
+    width: 760px;
+    aspect-ratio: 1280 / 720;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .stage img.bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .stage img.photo {
+    position: absolute;
+    left: 26%;
+    width: 50%;
+    top: 0;
+    height: 100%;
+    object-fit: cover;
+    object-position: 68% 30%;
+    display: block;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <img class="bg" src="images/AAA.jpg" alt="" />
+    <img class="photo" src="images/3385.jpg" alt="" />
+  </div>
+</body>
+</html>
