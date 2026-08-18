@@ -157,22 +157,24 @@ a {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 16px;
 }
 
 .site-nav a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.8);
   font-weight: 600;
-  font-size: 0.92rem;
-  padding: 6px 2px;
+  font-size: 0.86rem;
+  padding: 6px 1px;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  flex: none;
 }
 
 .site-nav a:hover,
@@ -186,14 +188,15 @@ a {
   align-items: center;
   gap: 8px;
   height: 44px;
-  padding: 0 20px;
+  padding: 0 16px;
   border-radius: 0;
   background: var(--accent);
   color: #fff !important;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   text-decoration: none;
   white-space: nowrap;
+  flex: none;
   transition: background 160ms ease, transform 160ms ease;
 }
 
@@ -354,6 +357,56 @@ a {
   background: var(--line);
 }
 
+.hero-second-opinion {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 16px 24px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: rgba(183, 145, 63, 0.08);
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.hero-second-opinion:hover {
+  background: rgba(183, 145, 63, 0.16);
+  transform: translateY(-1px);
+}
+
+.hero-second-opinion-badge {
+  flex: 0 0 auto;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  letter-spacing: 0.02em;
+}
+
+.hero-second-opinion-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.hero-second-opinion-text {
+  flex: 0 1 auto;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.hero-second-opinion-arrow {
+  flex: 0 0 auto;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
 .hero-art {
   position: relative;
   border-radius: var(--radius-lg);
@@ -362,10 +415,53 @@ a {
   aspect-ratio: 4 / 3.4;
 }
 
-.hero-art img {
+.hero-art-fade {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-art-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.hero-art-img--photo {
+  animation: hero-art-fade-photo 12s ease-in-out infinite;
+}
+
+.hero-art-img--logo {
+  box-sizing: border-box;
+  object-fit: contain;
+  background: var(--primary);
+  padding: 56px;
+  animation: hero-art-fade-logo 12s ease-in-out infinite;
+}
+
+@keyframes hero-art-fade-photo {
+  0%, 33.33% { opacity: 1; }
+  50%, 83.33% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes hero-art-fade-logo {
+  0%, 33.33% { opacity: 0; }
+  50%, 83.33% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-art-img--photo,
+  .hero-art-img--logo {
+    animation: none;
+  }
+
+  .hero-art-img--logo {
+    opacity: 0;
+  }
 }
 
 .hero-art-badge {
@@ -559,6 +655,11 @@ a {
   max-width: 60ch;
 }
 
+.section-head-nowrap {
+  max-width: none;
+  white-space: nowrap;
+}
+
 .section-tag {
   display: inline-block;
   color: var(--accent-dark);
@@ -719,6 +820,37 @@ a {
   margin-bottom: 10px;
 }
 
+.rank-badge {
+  display: block;
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.card-subtitle {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.plan-price {
+  margin: 0 0 12px;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.plan-price span {
+  display: block;
+  margin-top: 4px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
 /* ---------- About banner ---------- */
 .about-banner {
   display: grid;
@@ -779,11 +911,26 @@ a {
 }
 
 /* ---------- Representative message ---------- */
-.message-banner {
-  display: grid;
-  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
-  gap: 40px;
-  align-items: center;
+.message-banner::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.profile-banner-image {
+  float: left;
+  width: 70%;
+  max-width: 720px;
+  margin: 4px 32px 20px 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-flat);
+}
+
+.profile-banner-image img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .message-figure {
@@ -804,7 +951,7 @@ a {
   padding-left: 20px;
   border-left: 3px solid var(--accent);
   font-family: var(--font-serif);
-  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
   font-weight: 700;
   color: var(--primary);
   line-height: 1.8;
@@ -1117,7 +1264,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(100deg, rgba(8, 13, 24, 0.94) 0%, rgba(8, 13, 24, 0.86) 45%, rgba(8, 13, 24, 0.55) 100%);
+  background: linear-gradient(100deg, rgba(8, 13, 24, 0.94) 0%, rgba(8, 13, 24, 0.9) 45%, rgba(8, 13, 24, 0.72) 100%);
   z-index: 0;
 }
 
@@ -1225,7 +1372,8 @@ a {
 }
 
 .form-field input,
-.form-field textarea {
+.form-field textarea,
+.form-field select {
   width: 100%;
   padding: 12px 14px;
   border: 1px solid var(--line);
@@ -1237,7 +1385,8 @@ a {
 }
 
 .form-field input:focus,
-.form-field textarea:focus {
+.form-field textarea:focus,
+.form-field select:focus {
   outline: none;
   border-color: var(--accent);
   background: #fff;
@@ -1246,6 +1395,34 @@ a {
 .form-field textarea {
   resize: vertical;
   min-height: 120px;
+}
+
+.form-note {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  padding: 4px 0 2px;
+}
+
+.choice-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.choice-item input[type="checkbox"],
+.choice-item input[type="radio"] {
+  width: auto;
+  accent-color: var(--accent-dark);
 }
 
 .form-field.has-error input,
@@ -1570,8 +1747,11 @@ a {
     order: -1;
   }
 
-  .message-banner {
-    grid-template-columns: 1fr;
+  .profile-banner-image {
+    float: none;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 24px;
   }
 
   .message-figure {
@@ -1664,6 +1844,10 @@ a {
 }
 
 @media (max-width: 720px) {
+  .section-head-nowrap {
+    white-space: normal;
+  }
+
   .news-item {
     grid-template-columns: 1fr;
     gap: 6px;

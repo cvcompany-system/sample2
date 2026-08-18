@@ -37,8 +37,9 @@
             <a href="index.html">トップ</a>
             <a href="company.html">会社概要</a>
             <a href="service.html">業務内容</a>
+            <a href="pricing.html">料金プラン</a>
             <a href="case-study.html">実績紹介</a>
-            <a href="team.html">メンバー紹介</a>
+            <a href="profile.html">代表挨拶</a>
             <a href="news.html">お知らせ</a>
             <a href="contact.html" aria-current="page">お問い合わせ</a>
           </nav>
@@ -107,8 +108,8 @@
               </p>
               <form id="contact-form" class="contact-form" novalidate>
                 <div class="form-field">
-                  <label for="cf-company">会社名</label>
-                  <input type="text" id="cf-company" name="company" placeholder="株式会社◯◯" autocomplete="organization" />
+                  <label for="cf-name">お名前<span class="form-required">必須</span></label>
+                  <input type="text" id="cf-name" name="name" placeholder="山田 太郎" autocomplete="name" required />
                 </div>
                 <div class="form-field">
                   <label for="cf-phone">電話番号</label>
@@ -119,8 +120,90 @@
                   <input type="email" id="cf-email" name="email" placeholder="example@company.co.jp" autocomplete="email" required />
                 </div>
                 <div class="form-field">
-                  <label for="cf-message">お問い合わせ内容<span class="form-required">必須</span></label>
-                  <textarea id="cf-message" name="message" rows="5" placeholder="ご相談内容をご記入ください" required></textarea>
+                  <label for="cf-prefecture">物件の所在都道府県</label>
+                  <select id="cf-prefecture" name="prefecture">
+                    <option value="">選択してください</option>
+                    <option value="北海道">北海道</option>
+                    <option value="青森県">青森県</option>
+                    <option value="岩手県">岩手県</option>
+                    <option value="宮城県">宮城県</option>
+                    <option value="秋田県">秋田県</option>
+                    <option value="山形県">山形県</option>
+                    <option value="福島県">福島県</option>
+                    <option value="茨城県">茨城県</option>
+                    <option value="栃木県">栃木県</option>
+                    <option value="群馬県">群馬県</option>
+                    <option value="埼玉県">埼玉県</option>
+                    <option value="千葉県">千葉県</option>
+                    <option value="東京都">東京都</option>
+                    <option value="神奈川県">神奈川県</option>
+                    <option value="新潟県">新潟県</option>
+                    <option value="富山県">富山県</option>
+                    <option value="石川県">石川県</option>
+                    <option value="福井県">福井県</option>
+                    <option value="山梨県">山梨県</option>
+                    <option value="長野県">長野県</option>
+                    <option value="岐阜県">岐阜県</option>
+                    <option value="静岡県">静岡県</option>
+                    <option value="愛知県">愛知県</option>
+                    <option value="三重県">三重県</option>
+                    <option value="滋賀県">滋賀県</option>
+                    <option value="京都府">京都府</option>
+                    <option value="大阪府">大阪府</option>
+                    <option value="兵庫県">兵庫県</option>
+                    <option value="奈良県">奈良県</option>
+                    <option value="和歌山県">和歌山県</option>
+                    <option value="鳥取県">鳥取県</option>
+                    <option value="島根県">島根県</option>
+                    <option value="岡山県">岡山県</option>
+                    <option value="広島県">広島県</option>
+                    <option value="山口県">山口県</option>
+                    <option value="徳島県">徳島県</option>
+                    <option value="香川県">香川県</option>
+                    <option value="愛媛県">愛媛県</option>
+                    <option value="高知県">高知県</option>
+                    <option value="福岡県">福岡県</option>
+                    <option value="佐賀県">佐賀県</option>
+                    <option value="長崎県">長崎県</option>
+                    <option value="熊本県">熊本県</option>
+                    <option value="大分県">大分県</option>
+                    <option value="宮崎県">宮崎県</option>
+                    <option value="鹿児島県">鹿児島県</option>
+                    <option value="沖縄県">沖縄県</option>
+                    <option value="複数拠点・全国">複数拠点・全国</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label>お悩みの種類<span class="form-note" style="display:inline;font-size:0.78rem;margin-left:6px;">（複数選択可）</span></label>
+                  <div class="choice-group">
+                    <label class="choice-item"><input type="checkbox" name="concern" value="大手企業の対応不満" /> 大手企業の対応不満</label>
+                    <label class="choice-item"><input type="checkbox" name="concern" value="しがらみ" /> 昔からのお付き合い・しがらみ</label>
+                    <label class="choice-item"><input type="checkbox" name="concern" value="建物トラブル" /> 建物トラブル（雨漏り等）</label>
+                    <label class="choice-item"><input type="checkbox" name="concern" value="投資分析セカンドオピニオン" /> 投資分析のセカンドオピニオン</label>
+                    <label class="choice-item"><input type="checkbox" name="concern" value="その他" /> その他</label>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="cf-message">現在の具体的な状況<span class="form-required">必須</span></label>
+                  <p class="form-note">※大手に知られることは一切ありません。安心してご記入ください。</p>
+                  <textarea id="cf-message" name="message" rows="8" placeholder="現在のお悩みや物件の状況について、できるだけ具体的にご記入ください" required></textarea>
+                </div>
+                <div class="form-field">
+                  <label>トムへのご要望<span class="form-note" style="display:inline;font-size:0.78rem;margin-left:6px;">（複数選択可）</span></label>
+                  <div class="choice-group">
+                    <label class="choice-item"><input type="checkbox" name="request" value="無料相談" /> 無料相談</label>
+                    <label class="choice-item"><input type="checkbox" name="request" value="科学的精密検査" /> 科学的精密検査（建物解析）</label>
+                    <label class="choice-item"><input type="checkbox" name="request" value="盾としての並走" /> 盾としての並走（資産顧問契約）</label>
+                    <label class="choice-item"><input type="checkbox" name="request" value="その他" /> その他</label>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>ご希望の相談方法</label>
+                  <div class="choice-group">
+                    <label class="choice-item"><input type="radio" name="method" value="オンライン" checked /> オンライン</label>
+                    <label class="choice-item"><input type="radio" name="method" value="電話" /> 電話</label>
+                    <label class="choice-item"><input type="radio" name="method" value="対面" /> 対面</label>
+                  </div>
                 </div>
                 <p class="form-error" id="contact-form-error" role="alert" hidden></p>
                 <div class="hero-actions" style="margin-top:8px;">
@@ -156,8 +239,9 @@
             <li><a href="index.html">トップ</a></li>
             <li><a href="company.html">会社概要</a></li>
             <li><a href="service.html">業務内容</a></li>
+            <li><a href="pricing.html">料金プラン</a></li>
             <li><a href="case-study.html">実績紹介</a></li>
-            <li><a href="team.html">メンバー紹介</a></li>
+            <li><a href="profile.html">代表挨拶</a></li>
             <li><a href="news.html">お知らせ</a></li>
           </ul>
         </div>
