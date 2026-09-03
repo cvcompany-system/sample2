@@ -43,7 +43,7 @@
             <a href="pricing.html">料金プラン</a>
             <a href="case-study.html" aria-current="page">実績紹介</a>
             <a href="profile.html">代表挨拶</a>
-            <a href="news.html">お知らせ</a>
+            <a href="news.html">お知らせ/SNS</a>
             <a href="contact.html">お問い合わせ</a>
           </nav>
           <a class="header-cta" href="contact.html">相談してみる</a>
@@ -102,6 +102,17 @@
               <h2>実践記録</h2>
               <p>いずれも実際にご相談いただいた事例をもとに、守秘義務に配慮して内容を再構成したものです。</p>
             </div>
+            <form class="case-filter" id="case-filter">
+              <label class="sr-only" for="case-category">カテゴリで絞り込む</label>
+              <select id="case-category" name="category">
+                <option value="">すべてのカテゴリ</option>
+                <option value="代表のblog">代表のblog</option>
+                <option value="管理トラブルのblog">管理トラブルのblog</option>
+                <option value="取引上のトラブル">取引上のトラブル</option>
+                <option value="シニアの住み替えと資金化の現場から">シニアの住み替えと資金化の現場から</option>
+              </select>
+              <button type="submit">絞り込む</button>
+            </form>
           </div>
 
           <div class="case-list">
@@ -255,6 +266,8 @@
             </article>
           </div>
 
+          <p class="case-filter-empty" id="case-filter-empty" hidden>選択したカテゴリの記事は現在ありません。</p>
+
           <p class="case-disclaimer">
             ※ 掲載内容は、ご相談者様のプライバシー・守秘義務に配慮し、個人・法人を特定できないよう一部を再構成してご紹介しています。
           </p>
@@ -300,7 +313,7 @@
             <li><a href="pricing.html">料金プラン</a></li>
             <li><a href="case-study.html">実績紹介</a></li>
             <li><a href="profile.html">代表挨拶</a></li>
-            <li><a href="news.html">お知らせ</a></li>
+            <li><a href="news.html">お知らせ/SNS</a></li>
           </ul>
         </div>
         <div class="footer-col">

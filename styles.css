@@ -660,6 +660,43 @@ a {
   white-space: nowrap;
 }
 
+.case-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.case-filter select,
+.case-filter button {
+  height: 40px;
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.case-filter select {
+  min-width: 250px;
+  padding: 0 34px 0 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+}
+
+.case-filter button {
+  padding: 0 16px;
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  transition: background 160ms ease;
+}
+
+.case-filter button:hover {
+  background: var(--accent-dark);
+}
+
 .section-tag {
   display: inline-block;
   color: var(--accent-dark);
@@ -1561,6 +1598,16 @@ a {
   gap: 32px;
 }
 
+.case-filter-empty {
+  margin: 24px 0 0;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--muted);
+  text-align: center;
+}
+
 .case-file {
   background: #fff;
   border: 1px solid var(--line);
@@ -2001,6 +2048,20 @@ a {
 
   .section {
     padding: 44px 0;
+  }
+
+  .section-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .case-filter {
+    width: 100%;
+  }
+
+  .case-filter select {
+    min-width: 0;
+    flex: 1;
   }
 
   .case-intro-band {

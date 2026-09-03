@@ -40,6 +40,33 @@ if ('IntersectionObserver' in window && revealItems.length) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
+const caseFilter = document.getElementById('case-filter');
+
+if (caseFilter) {
+  const categorySelect = document.getElementById('case-category');
+  const caseFiles = document.querySelectorAll('.case-file');
+  const emptyMessage = document.getElementById('case-filter-empty');
+
+  caseFilter.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const selectedCategory = categorySelect.value;
+    let visibleCount = 0;
+
+    caseFiles.forEach((caseFile) => {
+      const caseTag = caseFile.querySelector('.case-tag')?.textContent.trim();
+      const isVisible = !selectedCategory || caseTag === selectedCategory;
+
+      caseFile.hidden = !isVisible;
+      if (isVisible) {
+        visibleCount += 1;
+      }
+    });
+
+    emptyMessage.hidden = visibleCount !== 0;
+  });
+}
+
 const contactForm = document.getElementById('contact-form');
 
 if (contactForm) {
