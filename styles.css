@@ -683,6 +683,64 @@ a {
 }
 
 /* ---------- News ---------- */
+.news-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  align-items: end;
+  gap: 48px;
+}
+
+.facebook-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 84px;
+  padding: 16px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-decoration: none;
+  transition: box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.facebook-banner:hover {
+  border-color: #1877f2;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.facebook-banner-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.facebook-banner-label {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-weight: 700;
+}
+
+.facebook-banner-text {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.82rem;
+}
+
+.facebook-banner-icon {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+  place-items: end center;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #1877f2;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 62px;
+  font-weight: 700;
+  line-height: 0.83;
+}
+
 .news-list {
   display: grid;
   gap: 14px;
@@ -1454,27 +1512,29 @@ a {
 
 /* ---------- Case Study (実績紹介) ---------- */
 .case-intro-band {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 28px;
+  display: grid;
+  gap: 20px;
   background: var(--bg-soft-2);
   border-radius: var(--radius-lg);
-  padding: 32px 36px;
+  padding: 28px 36px 30px;
 }
 
-.case-intro-band p {
-  flex: 1 1 420px;
+.case-intro-copy {
+  display: grid;
+  gap: 16px;
+}
+
+.case-intro-copy p {
   margin: 0;
   color: var(--muted);
-  max-width: 62ch;
 }
 
 .case-intro-badges {
   display: flex;
-  flex: none;
   flex-wrap: wrap;
   gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
 }
 
 .case-badge {
@@ -1563,6 +1623,10 @@ a {
   font-size: 0.95rem;
 }
 
+.case-section p + p {
+  margin-top: 14px;
+}
+
 .case-quote {
   margin: 0;
   padding: 18px 22px;
@@ -1601,6 +1665,43 @@ a {
   font-size: 0.84rem;
   font-weight: 600;
   color: var(--muted);
+}
+
+.case-point-list,
+.case-result-list {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+}
+
+.case-point-list div,
+.case-result-list li {
+  display: grid;
+  grid-template-columns: 7.5em 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent-dark);
+  background: var(--bg-soft);
+}
+
+.case-point-list dt,
+.case-result-list strong {
+  color: var(--primary);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.case-point-list dd,
+.case-result-list span {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.case-result-list {
+  padding: 0;
+  list-style: none;
 }
 
 .case-disclaimer {
@@ -1844,6 +1945,32 @@ a {
 }
 
 @media (max-width: 720px) {
+  .news-hero-inner {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 26px;
+  }
+
+  .facebook-banner {
+    min-height: 88px;
+    padding: 18px 20px;
+  }
+
+  .facebook-banner-copy {
+    gap: 8px;
+  }
+
+  .facebook-banner-text {
+    font-size: 0.86rem;
+  }
+
+  .facebook-banner-icon {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+    font-size: 56px;
+  }
+
   .section-head-nowrap {
     white-space: normal;
   }
@@ -1877,7 +2004,17 @@ a {
   }
 
   .case-intro-band {
-    padding: 26px;
+    gap: 16px;
+    padding: 22px;
+  }
+
+  .case-intro-badges {
+    padding-top: 16px;
+  }
+
+  .case-badge {
+    padding: 8px 14px;
+    white-space: normal;
   }
 
   .case-file-head,
