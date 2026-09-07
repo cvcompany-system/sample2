@@ -74,7 +74,17 @@ if (contactForm) {
   const successBox = document.getElementById('contact-form-success');
   const emailField = document.getElementById('cf-email');
   const messageField = document.getElementById('cf-message');
+  const discoveryFields = contactForm.querySelectorAll('input[name="discovery"]');
+  const discoveryOtherField = contactForm.querySelector('[name="discovery_other"]');
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const updateDiscoveryOtherState = () => {
+    const isOtherSelected = contactForm.querySelector('input[name="discovery"]:checked')?.value === 'その他';
+    discoveryOtherField.disabled = !isOtherSelected;
+  };
+
+  discoveryFields.forEach((field) => field.addEventListener('change', updateDiscoveryOtherState));
+  updateDiscoveryOtherState();
 
   contactForm.addEventListener('submit', (event) => {
     event.preventDefault();

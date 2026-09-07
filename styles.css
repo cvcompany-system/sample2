@@ -1313,6 +1313,7 @@ a {
 
 .profile-table th {
   width: 200px;
+  white-space: nowrap;
   background: var(--bg-soft);
   color: var(--primary);
   font-weight: 700;
@@ -1518,6 +1519,24 @@ a {
 .choice-item input[type="radio"] {
   width: auto;
   accent-color: var(--accent-dark);
+}
+
+.discovery-options {
+  display: grid;
+  gap: 10px;
+  padding: 4px 0 2px;
+}
+
+.discovery-row {
+  display: flex;
+  align-items: center;
+  gap: 10px 20px;
+}
+
+.discovery-row--other .choice-other-input {
+  width: min(100%, 240px);
+  min-height: 42px;
+  padding: 8px 10px;
 }
 
 .form-field.has-error input,
