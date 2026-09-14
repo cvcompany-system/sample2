@@ -86,9 +86,12 @@ if (contactForm) {
   discoveryFields.forEach((field) => field.addEventListener('change', updateDiscoveryOtherState));
   updateDiscoveryOtherState();
 
-  contactForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+  if (new URLSearchParams(window.location.search).get('sent') === '1') {
+    contactForm.hidden = true;
+    successBox.hidden = false;
+  }
 
+  contactForm.addEventListener('submit', (event) => {
     const errors = [];
     [emailField, messageField].forEach((field) => {
       field.closest('.form-field').classList.remove('has-error');
@@ -108,16 +111,11 @@ if (contactForm) {
     }
 
     if (errors.length) {
+      event.preventDefault();
       errorBox.textContent = errors.join(' ');
       errorBox.hidden = false;
       successBox.hidden = true;
       return;
     }
-
-    errorBox.hidden = true;
-    // モックアップのため実際の送信は行わず、成功メッセージのみ表示します。
-    contactForm.hidden = true;
-    successBox.hidden = false;
-    successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 }
