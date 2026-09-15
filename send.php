@@ -74,6 +74,9 @@ if (!function_exists('mb_send_mail')) {
     showMessage('送信できませんでした', 'サーバーのメール送信機能が有効になっていません。管理会社へご確認ください.');
 }
 
+mb_language('Japanese');
+mb_internal_encoding('UTF-8');
+
 $formatList = static function (array $values): string {
     return $values === [] ? 'なし' : implode('、', array_filter($values, static fn ($value): bool => $value !== ''));
 };
@@ -95,11 +98,14 @@ $body = implode("\n", [
     'ご要望: ' . $formatList($requests),
     '希望する相談方法: ' . ($method !== '' ? $method : '未選択'),
 ]);
+$body = mb_convert_encoding($body, 'JIS', 'UTF-8');
 
 $headers = implode("\r\n", [
-    'From: ' . SITE_NAME . ' <' . RECIPIENT . '>',
+    'From: ' . mb_encode_mimeheader(SITE_NAME, 'UTF-8') . ' <' . RECIPIENT . '>',
     'Reply-To: ' . $email,
-    'Content-Type: text/plain; charset=UTF-8',
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=ISO-2022-JP',
+    'Content-Transfer-Encoding: 7bit',
 ]);
 
 if (!mb_send_mail(RECIPIENT, $subject, $body, $headers)) {
