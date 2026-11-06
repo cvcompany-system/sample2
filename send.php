@@ -55,6 +55,11 @@ $discoveryOther = trim((string)($_POST['discovery_other'] ?? ''));
 $message = trim((string)($_POST['message'] ?? ''));
 $requests = array_map('trim', (array)($_POST['request'] ?? []));
 $method = trim((string)($_POST['method'] ?? ''));
+$privacyConsent = trim((string)($_POST['privacy_consent'] ?? ''));
+
+if ($privacyConsent !== '同意') {
+    showMessage('送信できません', '個人情報の取り扱いをご確認のうえ、同意してください.');
+}
 
 foreach ([$name, $phone, $email, $prefecture, $discovery, $discoveryOther, $message, $method] as $value) {
     if (preg_match('/[\r\n]/', $value) === 1) {
@@ -86,6 +91,7 @@ $body = implode("\n", [
     'Webサイトからお問い合わせがありました。',
     '',
     'お名前: ' . $name,
+    '個人情報の取り扱いへの同意: ' . $privacyConsent,
     '電話番号: ' . ($phone !== '' ? $phone : '未入力'),
     'メールアドレス: ' . $email,
     '物件の所在都道府県: ' . ($prefecture !== '' ? $prefecture : '未選択'),

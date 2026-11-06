@@ -633,6 +633,10 @@ a {
   margin: 14px 0 0;
 }
 
+.page-hero p.contact-lead {
+  max-width: 130ch;
+}
+
 .breadcrumb {
   margin: 0 0 16px;
   font-size: 0.82rem;
@@ -1482,6 +1486,33 @@ a {
   border-radius: var(--radius-md);
   font-size: 0.86rem;
   color: var(--muted);
+}
+
+.policy-content {
+  max-width: 900px;
+}
+
+.policy-content h3 {
+  margin: 30px 0 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  color: var(--primary);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+}
+
+.policy-content p,
+.policy-content li {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.policy-content p {
+  margin: 8px 0 16px;
+}
+
+.policy-content ul {
+  padding-left: 1.4em;
 }
 
 /* ---------- CTA banner ---------- */

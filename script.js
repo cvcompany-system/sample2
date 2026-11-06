@@ -74,6 +74,7 @@ if (contactForm) {
   const successBox = document.getElementById('contact-form-success');
   const emailField = document.getElementById('cf-email');
   const messageField = document.getElementById('cf-message');
+  const privacyConsentField = document.getElementById('privacy-consent');
   const discoveryFields = contactForm.querySelectorAll('input[name="discovery"]');
   const discoveryOtherField = contactForm.querySelector('[name="discovery_other"]');
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -96,6 +97,7 @@ if (contactForm) {
     [emailField, messageField].forEach((field) => {
       field.closest('.form-field').classList.remove('has-error');
     });
+    privacyConsentField.closest('.form-field').classList.remove('has-error');
 
     if (!emailField.value.trim()) {
       errors.push('メールアドレスを入力してください。');
@@ -108,6 +110,11 @@ if (contactForm) {
     if (!messageField.value.trim()) {
       errors.push('お問い合わせ内容を入力してください。');
       messageField.closest('.form-field').classList.add('has-error');
+    }
+
+    if (!privacyConsentField.checked) {
+      errors.push('個人情報の取り扱いをご確認のうえ、同意してください。');
+      privacyConsentField.closest('.form-field').classList.add('has-error');
     }
 
     if (errors.length) {
