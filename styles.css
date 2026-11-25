@@ -829,6 +829,10 @@ a {
   grid-template-columns: 130px 110px 1fr;
 }
 
+.news-item--article {
+  align-items: start;
+}
+
 .news-thumb {
   width: 72px;
   height: 56px;
@@ -866,6 +870,25 @@ a {
 
 .news-title {
   font-weight: 600;
+}
+
+.news-body {
+  margin-top: 12px;
+  font-size: 0.94rem;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.news-body p {
+  margin: 0 0 12px;
+}
+
+.news-body p:last-child {
+  margin-bottom: 0;
+}
+
+.news-signature {
+  text-align: right;
 }
 
 /* ---------- Grids: services / features / cards ---------- */
